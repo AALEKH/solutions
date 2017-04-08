@@ -1,0 +1,23 @@
+Psuedo Code Level Of Each Node of a Given Tree
+
+int s = X ; //Assuming we know first element
+boolean visited = new boolean(V);
+int level[V];
+list<int> q; // Initialize queue
+vector<int> ads[V] // Let us assume we know adjacent list of a given tree
+
+q.push_back(s);
+visited[s] = true;
+level[s] = 0;
+
+while(!q.empty()) {
+  int ele = q.pop();
+  list<int>::iterator iter;
+  for(iter = ads.begin; iter < ads.end(); itr++) {
+    level[*iter] = level[ele] + 1;
+    q.push_back(*iter);
+    visited[*iter] = true;
+  }
+}
+
+// level array now contains level for each corresponding elements
