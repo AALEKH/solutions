@@ -1,0 +1,12 @@
+// Psuedo Code to get height of a given binary tree
+
+int height(TreeNode *root) {
+  if(!root) return 0;
+  int rheight = height(root->right);
+  int lheight = height(root->left);
+  if(rheight > lheight) {
+    return rheight+1;
+  } else {
+    return lheight+1;
+  }
+}
