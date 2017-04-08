@@ -1,0 +1,53 @@
+// Psuedo Code for level order traversal of a given binary tree
+
+TreeNode *root = root element of a tree;
+
+list<TreeNode*> q;
+vector<int> elements;
+//element.push_back(root->value);
+q.push_back(root);
+
+while(!q.empty()){
+  TreeNode *element = q.front();
+  q.pop();
+  element.push_back(element->val);
+  //list<TreeNode*>::iterator iter;
+  if(element->left) q.push_back(element->left);
+  if(element->right) q.push_back(element->right);
+}
+
+
+//This solution is supposed to work on binary tree since there won't be any cyclic condition hence visited array for marking visited elements is not required
+
+
+/////// 2nd SOLUTION
+
+For BFS we need to move from level to level and then print each and every level's elements
+
+int height(TreeNode *root) {
+  if(!root) return 0;
+  
+  int lheight = height(root->left);
+  int rheight = height(root->right);
+  
+  if(lheight > rheight) {
+    return lheight+1;
+  } else {
+    return rheight+1;
+  }
+
+}
+
+for(int i = 1; i < height(root); i++){
+  levelElements(root, i);
+}
+
+void levelElements(TreeNode *root, int level){
+  if(level == 1){
+    cout << root->data;
+  } else {
+    if(root->left) levelElements(root->left, level-1);
+    if(root->right) levelElements(root->right, level-1);
+  }
+}
+
