@@ -1,0 +1,25 @@
+Psuedo Code for BFS Traversal through every node:
+
+int s = starting node; 
+vector<int> ads[int] // Let us  Assume Adjacent List of a given graph is already initialized
+
+bool *visited = new bool[V] //visited to mark visited flag to V number of nodes
+
+list<queue> q;
+
+q.push(s);
+visited[s] = true;
+
+while(!q.empty()) {
+  int ele = q.front();
+  q.pop();
+  
+  list<int>::iterator i;
+  for(i = ads[ele].begin; i < ads[ele].end(); i++) {
+    if(!visited[*i]){
+      visited[*i] = true;
+      q.push(*i);
+    }
+  }
+
+}
