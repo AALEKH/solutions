@@ -1,0 +1,5 @@
+Some notes on DP:
+
+1) Two types of problems exist in DP
+  1.1) Optimization problems: Expects you to select feasible solution, so that the value of required function can be maximised or minimised
+  1.2) Combinatorial problems: Expects us to find number of ways to do something or probablity of some event to occur.
