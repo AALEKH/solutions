@@ -29,13 +29,15 @@ int preorder(node* nod) {
 }
 
 int main() {
-	struct node *root1 = newNode(1);
-    root1->left = newNode(2);
-    root1->right = newNode(3);
-    root1->left->left  = newNode(4);
-    root1->left->right = newNode(5); 
+    struct node *root = newNode(1);
+    root->left        = newNode(2);
+    root->right       = newNode(3);
+    root->left->left  = newNode(7);
+    root->left->right = newNode(6);
+    root->right->left  = newNode(5);
+    root->right->right = newNode(4);
 
-    preorder(root1);
+    preorder(root);
 
     return 0;
  	
